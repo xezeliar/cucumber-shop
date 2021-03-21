@@ -8,6 +8,9 @@ public class OrderItem {
         if (quantity <= 0)
             throw new IllegalArgumentException("Quantity must be positive");
 
+        if (quantity > prod.getQuantity())
+            throw new IllegalArgumentException("Not enough items in stock");
+
         this.prod = prod;
         this.quantity = quantity;
     }
